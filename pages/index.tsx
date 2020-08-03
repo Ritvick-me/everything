@@ -1,65 +1,102 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import Card from "../components/Card";
+import Pill from "../components/Pill";
+import { useState, useEffect } from "react";
+import Headbar from "../components/Headbar";
+import { cards, pills, message } from "../data";
+
+export interface PillProps {
+  label: string;
+  value: string;
+}
+
+export interface CardProps {
+  title: string;
+  description?: string;
+  date: number;
+  new: boolean;
+  link: string;
+  tags: Array<string>;
+}
 
 export default function Home() {
+  const [currentPill, setCurrentPill] = useState(pills[0].value);
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Everything SRMKZILLA</title>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+
+        <meta
+          name="description"
+          content="Everything that SRMKZILLA has to share. Under one roof."
+        ></meta>
+
+        <meta property="og:type" content="website"></meta>
+        <meta
+          property="og:url"
+          content="https://everything.srmkzilla.net/"
+        ></meta>
+        <meta property="og:title" content="SRMKZILLA"></meta>
+        <meta
+          property="og:description"
+          content="Everything that SRMKZILLA has to share. Under one roof."
+        ></meta>
+        <meta property="og:image" content="/cover.jpg"></meta>
+
+        <meta property="twitter:card" content="summary_large_image"></meta>
+        <meta
+          property="twitter:url"
+          content="https://everything.srmkzilla.net/"
+        ></meta>
+        <meta property="twitter:title" content="SRMKZILLA"></meta>
+        <meta
+          property="twitter:description"
+          content="Everything that SRM</meta>KZILLA has to share. Under one roof."
+        ></meta>
+        <meta property="twitter:image" content="/cover.jpg"></meta>
       </Head>
+      <Headbar message={message} />
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        <h1 className={styles.title}>Everything SRMKZILLA</h1>
+        <div className={styles.verticalGrid}>
+          {pills.map((pill, index) => {
+            return (
+              <Pill
+                key={index}
+                active={pill.value === currentPill}
+                {...pill}
+                handleTap={(value) => {
+                  setCurrentPill(value);
+                }}
+              />
+            );
+          })}
+        </div>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          {cards
+            .filter(
+              (card) => card.tags.includes(currentPill) || currentPill === ""
+            )
+            .map((card, index) => {
+              return <Card {...card} key={index} />;
+            })}
         </div>
       </main>
 
       <footer className={styles.footer}>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://srmkzilla.net"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          <img src="/logo.svg" alt="Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
-  )
+  );
 }
