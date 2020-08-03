@@ -1,0 +1,27 @@
+.pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid #2179eb;
+  min-width: 80px;
+  height: 24px;
+  border-radius: 4px;
+  margin-right: 1rem;
+  background-color: transparent;
+  transition: all 0.15s ease;
+}
+
+.pill h6 {
+  color: #2179eb;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.pill.active {
+  background-color: #2179eb;
+}
+
+.pill.active h6 {
+  color: #fff;
+}
