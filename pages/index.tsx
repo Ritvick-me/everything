@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Card from "../components/Card";
 import Pill from "../components/Pill";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Headbar from "../components/Headbar";
 import { cards, pills, message } from "../data";
 
@@ -57,6 +57,22 @@ export default function Home() {
           content="Everything that SRM</meta>KZILLA has to share. Under one roof."
         ></meta>
         <meta property="twitter:image" content="/cover.jpg"></meta>
+
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-163949456-2"
+        />
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-163949456-2');
+        `,
+          }}
+        />
       </Head>
       <Headbar message={message} />
 
