@@ -173,6 +173,14 @@ export const cards: Array<CardProps> = [
     link: "https://twitter.com/SRMKZILLA_Club",
     tags: ["catch-us"],
   },
+  {
+    title: "Medium",
+    description: "Monday musings by SRMKZILLA",
+    date: 1594795924000,
+    new: false,
+    link: "https://medium.com/srmkzilla",
+    tags: ["catch-us"],
+  },
 ].sort((a, b) => {
   return b.date - a.date;
 });
