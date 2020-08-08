@@ -57,7 +57,7 @@ export const cards: Array<CardProps> = [
   },
   {
     title: "Using a Java Snippet from inside of Node.js",
-    description: "/ Aniruddha Chatterjee",
+    description: "Aniruddha Chatterjee",
     date: 1594188611000,
     new: true,
     link:
