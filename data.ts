@@ -181,6 +181,14 @@ export const cards: Array<CardProps> = [
     link: "https://medium.com/srmkzilla",
     tags: ["catch-us"],
   },
+  {
+    title: "Your Express-way to Serverless APIs",
+    description: "Part 1 — Serverless Architecture and AWS Lambdas",
+    date: 1597120200000,
+    new: true,
+    link: "https://medium.com/srmkzilla/your-express-way-to-serverless-apis-5387194d6db",
+    tags: ["blog"],
+  },
 ].sort((a, b) => {
   return b.date - a.date;
 });
