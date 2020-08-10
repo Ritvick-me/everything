@@ -183,7 +183,7 @@ export const cards: Array<CardProps> = [
   },
   {
     title: "Your Express-way to Serverless APIs",
-    description: "Part 1 — Serverless Architecture and AWS Lambdas",
+    description: "Part 1 — Serverless Architecture and AWS Lambdas // Gita Alekhya Paul",
     date: 1597120200000,
     new: true,
     link: "https://medium.com/srmkzilla/your-express-way-to-serverless-apis-5387194d6db",
